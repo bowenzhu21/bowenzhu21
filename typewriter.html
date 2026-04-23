@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bowen Zhu Typewriter</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #05070d;
+        --text: #ffffff;
+        --muted: #d7e7f5;
+        --cursor: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        background: var(--bg);
+        color: var(--text);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      }
+
+      .header {
+        position: relative;
+        width: min(92vw, 1200px);
+        aspect-ratio: 16 / 3;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        background: var(--bg);
+        overflow: hidden;
+      }
+
+      .background-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .title {
+        font-size: clamp(2.5rem, 7vw, 5rem);
+        font-weight: 400;
+        line-height: 1.1;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+      }
+
+      .typewriter {
+        box-sizing: content-box;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid var(--cursor);
+        width: 0;
+        animation:
+          typing 5.2s steps(9, end) infinite,
+          blink 0.7s step-end infinite;
+      }
+
+      .subtitle {
+        margin: 0.5rem 0 0;
+        color: var(--muted);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: clamp(1rem, 2.2vw, 1.5rem);
+        font-weight: 400;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+      }
+
+      @keyframes typing {
+        0%,
+        10% {
+          width: 0;
+        }
+
+        46%,
+        72% {
+          width: 9ch;
+        }
+
+        92%,
+        100% {
+          width: 0;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="header">
+      <video class="background-video" autoplay muted loop playsinline aria-hidden="true">
+        <source src="./assets/portfolio-bg.mov" type="video/quicktime" />
+      </video>
+      <div class="content">
+        <div class="title typewriter">Bowen Zhu</div>
+        <p class="subtitle">AI Software Engineering</p>
+      </div>
+    </main>
+  </body>
+</html>
